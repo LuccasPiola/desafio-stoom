@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
 `
 
 export const NavbarItem = styled.li<INavbarItem>`
-  cursor: pointer;
+  cursor: default;
   transition: color 0.5s;
   position: relative;
   display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
