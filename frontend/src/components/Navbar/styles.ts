@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     align-items: center;
 
     img {
-      width: 100px;
+      width: 80px;
     }
 
     h1 {
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     width: 100%;
     justify-content: center;
     list-style-type: none;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 `
 
