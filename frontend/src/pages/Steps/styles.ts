@@ -49,6 +49,12 @@ export const Wrapper = styled.div`
         font-size: 25px;
       }
     }
+
+    footer {
+      display: flex;
+      margin-top: 40px;
+      align-items: center;
+    }
   }
 `
 export const Option = styled(Button)<{ isSelected?: boolean }>`
@@ -91,21 +97,37 @@ export const Option = styled(Button)<{ isSelected?: boolean }>`
 
 export const Next = styled(Button)`
   button {
-    margin-top: 40px;
-    border: 1px solid #f8c763;
     border-radius: 10px;
-    padding: 5px 100px;
-    font-size: 30px;
+    padding: 5px 50px;
+    font-size: 25px;
     font-weight: 700;
     transition: background-color 0.5s;
     color: #fff;
     background-color: #f8c763;
-    transition: background-color 0.5s;
     font-weight: 500;
 
     &:hover {
       transition: background-color 0.5s;
       background-color: ${shade('0.2', '#f8c763')};
+    }
+  }
+`
+
+export const Back = styled(Button)`
+  button {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 5px 50px;
+    font-size: 25px;
+    font-weight: 700;
+    transition: border-color 0.5s;
+    color: #fff;
+    font-weight: 500;
+    margin-right: 20px;
+
+    &:hover {
+      transition: border-color 0.5s;
+      border-color: ${shade('0.2', '#fff')};
     }
   }
 `

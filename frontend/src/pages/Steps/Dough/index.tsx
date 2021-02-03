@@ -45,7 +45,9 @@ export default function DoughStep(): JSX.Element {
           </h2> */}
         </article>
 
-        <S.Next onClick={() => 1}>Próximo</S.Next>
+        <footer>
+          <S.Next onClick={() => 1}>Próximo</S.Next>
+        </footer>
       </div>
     </S.Wrapper>
   )

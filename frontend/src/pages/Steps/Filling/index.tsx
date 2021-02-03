@@ -48,7 +48,10 @@ export default function FillingStep(): JSX.Element {
           </h2> */}
         </article>
 
-        <S.Next onClick={() => 1}>Próximo</S.Next>
+        <footer>
+          <S.Back onClick={() => 1}>Voltar</S.Back>
+          <S.Next onClick={() => 1}>Próximo</S.Next>
+        </footer>
       </div>
     </S.Wrapper>
   )
