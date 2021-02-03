@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { shade } from 'polished'
 
-import woodenBackground from '../../assets/background-wood.jpg'
-import Button from '../../components/Button'
+import woodenBackground from '../../../assets/background-wood.jpg'
+import Button from '../../../components/Button'
 
 export const Wrapper = styled.div`
   background-image: url(${woodenBackground});
