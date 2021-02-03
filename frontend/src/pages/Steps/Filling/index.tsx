@@ -11,7 +11,7 @@ export default function FillingStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>O recheio</h1>
-        <img src={calabresa} alt="recheio" width={450} />
+        <img src={calabresa} alt="recheio" width={450} height={450} />
       </aside>
 
       <div>

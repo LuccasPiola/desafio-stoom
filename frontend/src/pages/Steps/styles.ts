@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  height: 600px;
 
   aside h1 {
     font-family: 'Parisienne', cursive;

@@ -9,7 +9,7 @@ export default function DoughStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>A massa</h1>
-        <img src={dough} alt="massa" width={450} />
+        <img src={dough} alt="massa" width={450} height={450} />
       </aside>
 
       <div>
