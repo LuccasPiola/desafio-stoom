@@ -15,35 +15,35 @@ export default function Instructions(): JSX.Element {
       <h1>Veja só como é fácil:</h1>
       <S.IconArea>
         <div>
-          <RoundIcon icon={GiDoughRoller} />
+          <RoundIcon icon={GiDoughRoller} size={50} color="#2e2e2e" />
           <p>Escolha a massa</p>
         </div>
 
         <BsArrowRight size={60} color="#2e2e2e" />
 
         <div>
-          <RoundIcon icon={GiCheeseWedge} />
+          <RoundIcon icon={GiCheeseWedge} size={50} color="#2e2e2e" />
           <p>Escolha o recheio</p>
         </div>
 
         <BsArrowRight size={60} color="#2e2e2e" />
 
         <div>
-          <RoundIcon icon={GoDashboard} />
+          <RoundIcon icon={GoDashboard} size={50} color="#2e2e2e" />
           <p>Escolha uma borda</p>
         </div>
 
         <BsArrowRight size={60} color="#2e2e2e" />
 
         <div>
-          <RoundIcon icon={GiFullPizza} />
+          <RoundIcon icon={GiFullPizza} size={50} color="#2e2e2e" />
           <p>O tamanho também</p>
         </div>
 
         <BsArrowRight size={60} color="#2e2e2e" />
 
         <div>
-          <RoundIcon icon={IoFastFood} />
+          <RoundIcon icon={IoFastFood} size={50} color="#2e2e2e" />
           <p>Aquela bebidinha</p>
         </div>
       </S.IconArea>
