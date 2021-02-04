@@ -22,7 +22,13 @@ export default function DoughStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>A massa</h1>
-        <LazyLoadImage src={dough} alt="massa" width={450} height={450} />
+        <LazyLoadImage
+          src={dough}
+          alt="massa"
+          width={450}
+          height={450}
+          effect="blur"
+        />
       </aside>
 
       <div>

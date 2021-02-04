@@ -19,7 +19,7 @@ export default function Navbar(): JSX.Element {
   return (
     <S.Wrapper>
       <div>
-        <LazyLoadImage src={logo} alt="logo" />
+        <LazyLoadImage src={logo} alt="logo" effect="blur" />
         <h1>Pizza Time!</h1>
       </div>
       <ul>

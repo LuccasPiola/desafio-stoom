@@ -22,7 +22,13 @@ export default function SizeStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>O tamanho</h1>
-        <LazyLoadImage src={bigPizza} alt="tamanho" width={450} height={450} />
+        <LazyLoadImage
+          src={bigPizza}
+          alt="tamanho"
+          width={450}
+          height={450}
+          effect="blur"
+        />
       </aside>
 
       <div>

@@ -30,6 +30,7 @@ export default function FillingStep(): JSX.Element {
           width={450}
           height={450}
           key={selectedButton}
+          effect="blur"
         />
       </aside>
 

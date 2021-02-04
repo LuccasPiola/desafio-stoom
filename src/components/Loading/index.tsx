@@ -7,7 +7,7 @@ import * as S from './styles'
 export default function Loading(): JSX.Element {
   return (
     <S.Wrapper>
-      <S.AnimatedImage src={logo} alt="logo" />
+      <S.AnimatedImage src={logo} alt="logo" effect="blur" />
     </S.Wrapper>
   )
 }

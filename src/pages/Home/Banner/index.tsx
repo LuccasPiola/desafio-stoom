@@ -10,7 +10,7 @@ export default function Banner(): JSX.Element {
   const history = useHistory()
   return (
     <S.Wrapper>
-      <LazyLoadImage src={pizza} alt="pizza" width={440} />
+      <LazyLoadImage src={pizza} alt="pizza" width={440} effect="blur" />
 
       <aside>
         <h1>Chegou a hora da pizza!</h1>

@@ -64,6 +64,7 @@ export default function Suggestion(): JSX.Element {
           alt="tamanho"
           width={450}
           height={450}
+          effect="blur"
         />
       </aside>
 
