@@ -1,12 +1,9 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import BorderStep from './pages/Steps/Border'
-import Conclusion from './pages/Steps/Conclusion'
-import DoughStep from './pages/Steps/Dough'
-import FillingStep from './pages/Steps/Filling'
-import SizeStep from './pages/Steps/Size'
-import Suggestion from './pages/Suggestion'
+import AppProvider from './context'
+import Routes from './routes'
+
 import GlobalStyle from './styles/global'
 
 export default function App(): JSX.Element {
@@ -14,7 +11,11 @@ export default function App(): JSX.Element {
     <>
       <GlobalStyle />
       <Navbar />
-      <Home />
+      <AppProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </AppProvider>
     </>
   )
 }
