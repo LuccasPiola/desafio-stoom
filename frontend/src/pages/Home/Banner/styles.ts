@@ -13,27 +13,27 @@ export const Wrapper = styled.div`
   padding: 40px 0;
 
   aside {
-    margin-left: 200px;
+    margin-left: 100px;
 
     h1 {
-      font-size: 35px;
+      font-size: 60px;
       margin-bottom: 15px;
       font-weight: 900;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 30px;
       margin-bottom: 12px;
       font-weight: 500;
     }
 
     hr {
-      width: 450px;
+      width: 800px;
     }
 
     h3 {
       margin-top: 50px;
-      font-size: 17px;
+      font-size: 20px;
       margin-bottom: 20px;
     }
 

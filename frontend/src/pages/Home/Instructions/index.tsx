@@ -11,7 +11,6 @@ import * as S from './styles'
 export default function Instructions(): JSX.Element {
   return (
     <S.Wrapper>
-      <h1>Veja só como é fácil:</h1>
       <S.IconArea>
         <div>
           <RoundIcon icon={GiDoughRoller} size={50} color="#2e2e2e" />

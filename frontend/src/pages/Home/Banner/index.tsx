@@ -7,7 +7,7 @@ import * as S from './styles'
 export default function Banner(): JSX.Element {
   return (
     <S.Wrapper>
-      <img src={pizza} alt="pizza" width={340} />
+      <img src={pizza} alt="pizza" width={440} />
 
       <aside>
         <h1>Chegou a hora da pizza!</h1>

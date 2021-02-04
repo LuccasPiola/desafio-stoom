@@ -19,13 +19,6 @@ export const Wrapper = styled.div`
     width: 100%;
     z-index: -5;
   }
-
-  h1 {
-    margin: 40px 0;
-    font-size: 45px;
-    font-weight: 500;
-    color: #2e2e2e;
-  }
 `
 
 export const IconArea = styled.div`
@@ -33,7 +26,7 @@ export const IconArea = styled.div`
   align-items: baseline;
   justify-content: space-between;
   width: 60%;
-  margin-bottom: 40px;
+  margin: 40px 0;
 
   div {
     display: flex;

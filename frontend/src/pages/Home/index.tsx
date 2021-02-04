@@ -4,9 +4,9 @@ import Instructions from './Instructions'
 
 export default function Home(): JSX.Element {
   return (
-    <div>
+    <>
       <Banner />
       <Instructions />
-    </div>
+    </>
   )
 }
