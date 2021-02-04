@@ -13,9 +13,15 @@ export default function CommentProvider({
   const [isLoading, setIsLoading] = React.useState(true)
 
   const getComments = React.useCallback(async () => {
-    const response = await api.get<Comments>('/comments')
-    setComments(response.data)
-    setIsLoading(false)
+    try {
+      const response = await api.get<Comments>('/comments')
+      setComments(response.data)
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      // eslint-disable-next-line no-console
+      console.error(err)
+    }
   }, [])
 
   React.useEffect(() => {

@@ -19,6 +19,9 @@ import api from '../../services/api'
 import Loading from '../../components/Loading'
 
 export default function Suggestion(): JSX.Element {
+  const history = useHistory()
+  const { instantiate, reset } = useStackFluxContext()
+  const [selectedButton, setSelectedButton] = React.useState(1)
   const [isLoading, setIsLoading] = React.useState(true)
   const [dayOfWeek, setDayOfWeek] = React.useState(0)
   const suggestionsByDay = [
@@ -32,18 +35,21 @@ export default function Suggestion(): JSX.Element {
   ]
 
   const handleAPI = React.useCallback(async () => {
-    const response = await api.get('/suggestion')
-    setDayOfWeek(response.data.dayOfTheWeek)
-    setIsLoading(false)
+    try {
+      const response = await api.get('/suggestion')
+      setDayOfWeek(response.data.dayOfTheWeek)
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      // eslint-disable-next-line no-console
+      console.error(err)
+    }
   }, [])
 
   React.useEffect(() => {
     handleAPI()
-  })
-
-  const [selectedButton, setSelectedButton] = React.useState(1)
-  const history = useHistory()
-  const { instantiate } = useStackFluxContext()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return isLoading ? (
     <Loading />
@@ -94,7 +100,14 @@ export default function Suggestion(): JSX.Element {
         </article>
 
         <footer>
-          <S.Back onClick={() => history.push('/')}>Voltar</S.Back>
+          <S.Back
+            onClick={() => {
+              reset()
+              history.push('/')
+            }}
+          >
+            Voltar
+          </S.Back>
           <S.Next onClick={() => instantiate(Steps.conclusion)}>Próximo</S.Next>
         </footer>
       </div>

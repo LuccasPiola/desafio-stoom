@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from '../pages/Home'
 import StepController from '../pages/Steps'
-import Suggestion from '../pages/Suggestion'
+import Suggestion from '../pages/Suggestion/controller'
 
 export default function Routes(): JSX.Element {
   return (

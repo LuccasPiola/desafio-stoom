@@ -29,6 +29,16 @@ export const Wrapper = styled.div`
     animation: 1.5s ${fadeInAnimation} 1.5s;
     animation-fill-mode: forwards;
   }
+
+  h3 {
+    opacity: 0;
+    font-family: 'Parisienne', cursive;
+    font-size: 40px;
+    text-align: center;
+    animation: 1.5s ${fadeInAnimation} 2.5s;
+    animation-fill-mode: forwards;
+    margin-top: 20px;
+  }
 `
 
 export const Next = styled(Button)`
@@ -43,7 +53,7 @@ export const Next = styled(Button)`
     color: #fff;
     background-color: #f8c763;
     font-weight: 500;
-    animation: 1.5s ${fadeInAnimation} 2.5s;
+    animation: 1.5s ${fadeInAnimation} 3.5s;
     animation-fill-mode: forwards;
 
     &:hover {
