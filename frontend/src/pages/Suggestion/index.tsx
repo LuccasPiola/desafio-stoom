@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useHistory } from 'react-router-dom'
 import monday from '../../assets/calabresa.png'
 import tuesday from '../../assets/da-casa.png'
 import wednesday from '../../assets/borda-recheada.png'
@@ -7,6 +8,11 @@ import thursday from '../../assets/margherita.png'
 import friday from '../../assets/pizza-grande.png'
 import saturday from '../../assets/pizza-2.png'
 import sunday from '../../assets/borda-vulcao.png'
+
+import { SIZE_COMMENTS } from '../../constants'
+import { Steps } from '../Steps/types'
+
+import { useStackFluxContext } from '../../context/flux.context'
 
 import * as S from './styles'
 
@@ -21,6 +27,10 @@ export default function Suggestion(): JSX.Element {
     friday,
     saturday,
   ]
+
+  const [selectedButton, setSelectedButton] = React.useState(1)
+  const history = useHistory()
+  const { instantiate } = useStackFluxContext()
 
   return (
     <S.Wrapper>
@@ -39,33 +49,38 @@ export default function Suggestion(): JSX.Element {
           <h1>Qual tamanho você deseja?</h1>
 
           <div>
-            <S.Option onClick={() => 1} isSelected>
+            <S.Option
+              onClick={() => setSelectedButton(1)}
+              isSelected={selectedButton === 1}
+            >
               Tradicional
             </S.Option>
-            <S.Option onClick={() => 1}>Grande</S.Option>
-            <S.Option onClick={() => 1}>Família</S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(2)}
+              isSelected={selectedButton === 2}
+            >
+              Grande
+            </S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(3)}
+              isSelected={selectedButton === 3}
+            >
+              Família
+            </S.Option>
           </div>
         </main>
 
         <article>
-          <h2>
-            &quot;Pizza tradicional com 8 pedaços. A famosinha!&quot; Chef Piola
+          <h2 key={selectedButton}>
+            &quot;
+            {SIZE_COMMENTS[selectedButton - 1]}
+            &quot; Chef Piola
           </h2>
-
-          {/* <h2>
-            &quot;Pizza grande com 10 sabores! Tá com fome né?&quot; Chef Piola
-          </h2>
-
-          <h2>
-            &quot;12 pedaços. Eu nunca entendi por que uma pizza precisa se
-            chamar tamanho família... E se eu quiser comer ela sozinho?!&quot;
-            Chef Piola
-          </h2> */}
         </article>
 
         <footer>
-          <S.Back onClick={() => 1}>Voltar</S.Back>
-          <S.Next onClick={() => 1}>Próximo</S.Next>
+          <S.Back onClick={() => history.push('/')}>Voltar</S.Back>
+          <S.Next onClick={() => instantiate(Steps.conclusion)}>Próximo</S.Next>
         </footer>
       </div>
     </S.Wrapper>

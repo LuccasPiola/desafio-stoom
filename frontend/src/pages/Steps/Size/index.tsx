@@ -1,10 +1,17 @@
 import React from 'react'
 
+import { SIZE_COMMENTS } from '../../../constants'
+import { Steps } from '../types'
+import { useStackFluxContext } from '../../../context/flux.context'
+
 import bigPizza from '../../../assets/pizza-grande.png'
 
 import * as S from '../styles'
 
 export default function SizeStep(): JSX.Element {
+  const [selectedButton, setSelectedButton] = React.useState(1)
+  const { removeLast, instantiate } = useStackFluxContext()
+
   return (
     <S.Wrapper>
       <aside>
@@ -17,32 +24,38 @@ export default function SizeStep(): JSX.Element {
           <h1>Qual tamanho você deseja?</h1>
 
           <div>
-            <S.Option onClick={() => 1} isSelected>
+            <S.Option
+              onClick={() => setSelectedButton(1)}
+              isSelected={selectedButton === 1}
+            >
               Tradicional
             </S.Option>
-            <S.Option onClick={() => 1}>Grande</S.Option>
-            <S.Option onClick={() => 1}>Família</S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(2)}
+              isSelected={selectedButton === 2}
+            >
+              Grande
+            </S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(3)}
+              isSelected={selectedButton === 3}
+            >
+              Família
+            </S.Option>
           </div>
         </main>
 
         <article>
-          {/* <h2>
-            &quot;Pizza tradicional com 8 pedaços. A famosinha!&quot; Chef Piola
-          </h2>
-          <h2>
-            &quot;Pizza grande com 10 sabores! Tá com fome né?&quot; Chef Piola
-          </h2> */}
-
-          <h2>
-            &quot;12 pedaços. Eu nunca entendi por que uma pizza precisa se
-            chamar tamanho família... E se eu quiser comer ela sozinho?!&quot;
-            Chef Piola
+          <h2 key={selectedButton}>
+            &quot;
+            {SIZE_COMMENTS[selectedButton - 1]}
+            &quot; Chef Piola
           </h2>
         </article>
 
         <footer>
-          <S.Back onClick={() => 1}>Voltar</S.Back>
-          <S.Next onClick={() => 1}>Próximo</S.Next>
+          <S.Back onClick={() => removeLast()}>Voltar</S.Back>
+          <S.Next onClick={() => instantiate(Steps.conclusion)}>Próximo</S.Next>
         </footer>
       </div>
     </S.Wrapper>

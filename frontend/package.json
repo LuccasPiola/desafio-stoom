@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.8",
     "polished": "^4.1.0",
     "react": "^17.0.1",
+    "react-animations": "^1.0.0",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",

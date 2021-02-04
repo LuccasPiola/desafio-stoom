@@ -1,7 +1,13 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+import { fadeInLeft, fadeInRight, slideInDown, fadeIn } from 'react-animations'
 import { shade } from 'polished'
 
 import Button from '../../components/Button'
+
+const fadeAnimationLeft = keyframes`${fadeInLeft} 100% { opacity: 1 }`
+const fadeAnimationRight = keyframes`${fadeInRight} 100% { opacity: 1 }`
+const slideUpAnimation = keyframes`${slideInDown} 100% { opacity: 1 }`
+const fadeInAnimation = keyframes`${fadeIn} 100% { opacity: 1 }`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,10 +16,13 @@ export const Wrapper = styled.div`
   margin-top: 40px;
   height: 600px;
 
-  aside h1 {
-    font-family: 'Parisienne', cursive;
-    font-size: 80px;
-    text-align: center;
+  aside {
+    animation: 1s ${fadeAnimationLeft};
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 80px;
+      text-align: center;
+    }
   }
 
   > div {
@@ -21,6 +30,9 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin-left: 80px;
+    opacity: 0;
+    animation: 1s ${fadeAnimationRight} 0.5s;
+    animation-fill-mode: forwards;
     main {
       background-color: #fff;
       border-radius: 10px;
@@ -48,6 +60,9 @@ export const Wrapper = styled.div`
         margin: 0 auto;
         font-family: 'Parisienne', cursive;
         font-size: 25px;
+        opacity: 0;
+        animation: 0.7s ${slideUpAnimation};
+        animation-fill-mode: forwards;
       }
     }
 
@@ -77,11 +92,6 @@ export const Option = styled(Button)<{ isSelected?: boolean }>`
             color: #fff;
             background-color: #f8c763;
             transition: background-color 0.5s;
-
-            &:hover {
-              transition: background-color 0.5s;
-              background-color: ${shade('0.2', '#f8c763')};
-            }
           `
         : css`
             &:hover {
@@ -131,4 +141,10 @@ export const Back = styled(Button)`
       border-color: ${shade('0.2', '#fff')};
     }
   }
+`
+
+export const AnimatedImage = styled.img`
+  opacity: 0;
+  animation: 1s ${fadeInAnimation};
+  animation-fill-mode: forwards;
 `

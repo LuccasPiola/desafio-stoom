@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     background: #121619;
     color: #fafafa;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   html, body, #root {

@@ -2,9 +2,15 @@ import React from 'react'
 
 import dough from '../../../assets/dough.png'
 
+import { DOUGH_COMENTS } from '../../../constants'
+import { Steps } from '../types'
+import { useStackFluxContext } from '../../../context/flux.context'
+
 import * as S from '../styles'
 
 export default function DoughStep(): JSX.Element {
+  const [selectedButton, setSelectedButton] = React.useState(1)
+  const { instantiate } = useStackFluxContext()
   return (
     <S.Wrapper>
       <aside>
@@ -17,36 +23,37 @@ export default function DoughStep(): JSX.Element {
           <h1>Escolha um tipo de massa</h1>
 
           <div>
-            <S.Option onClick={() => 1} isSelected>
+            <S.Option
+              onClick={() => setSelectedButton(1)}
+              isSelected={selectedButton === 1}
+            >
               Massa fina
             </S.Option>
-            <S.Option onClick={() => 1}>Massa média</S.Option>
-            <S.Option onClick={() => 1}>Massa grossa</S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(2)}
+              isSelected={selectedButton === 2}
+            >
+              Massa média
+            </S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(3)}
+              isSelected={selectedButton === 3}
+            >
+              Massa grossa
+            </S.Option>
           </div>
         </main>
 
         <article>
-          <h2>
-            &quot;A massa fina foi feita para quem gosta de delicadeza na pizza,
-            para os amantes do recheio. Crocante e saborosa, a massa fina é a
-            segunda mais pedida da casa.&quot; Chef Piola
+          <h2 key={selectedButton}>
+            &quot;
+            {DOUGH_COMENTS[selectedButton - 1]}
+            &quot; Chef Piola
           </h2>
-          {/*
-          <h2>
-            &quot;A massa média são para os que gostam da pizza exatamente do
-            jeito que ela foi criada. Na medida, essa é a massa mais pedida da
-            casa.&quot; Chef Piola
-          </h2>
-
-          <h2>
-            &quot;A massa grossa é exatamente o que um amante de massas precisa,
-            com bastante recheio pra acompanhar. Um bom amante de pizza é um bom
-            amante de massas!&quot; Chef Piola
-          </h2> */}
         </article>
 
         <footer>
-          <S.Next onClick={() => 1}>Próximo</S.Next>
+          <S.Next onClick={() => instantiate(Steps.filling)}>Próximo</S.Next>
         </footer>
       </div>
     </S.Wrapper>

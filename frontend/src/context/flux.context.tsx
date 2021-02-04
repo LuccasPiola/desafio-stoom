@@ -1,6 +1,8 @@
 import React from 'react'
 import { StackFluxState } from './types'
 
+import DoughStep from '../pages/Steps/Dough'
+
 const StackFluxContext = React.createContext<StackFluxState>(
   {} as StackFluxState,
 )
@@ -10,7 +12,9 @@ export default function StackFluxProvider({
 }: {
   children: React.ReactNode
 }): JSX.Element {
-  const [stack, setStack] = React.useState<React.ReactElement[]>([])
+  const [stack, setStack] = React.useState<React.ReactElement[]>([
+    React.createElement(DoughStep),
+  ])
 
   const getLength = React.useCallback(() => {
     return stack.length
@@ -29,12 +33,12 @@ export default function StackFluxProvider({
   )
 
   const removeLast = React.useCallback(() => {
-    const newStack = stack.slice(-1, 1)
+    const newStack = stack.splice(0, stack.length - 1)
     setStack(newStack)
   }, [stack])
 
   const reset = React.useCallback(() => {
-    setStack([])
+    setStack([React.createElement(DoughStep)])
   }, [])
 
   return (

@@ -1,5 +1,9 @@
 import React from 'react'
 
+import { FILLING_COMENTS } from '../../../constants'
+import { Steps } from '../types'
+import { useStackFluxContext } from '../../../context/flux.context'
+
 import calabresa from '../../../assets/calabresa.png'
 import margherita from '../../../assets/margherita.png'
 import daCasa from '../../../assets/da-casa.png'
@@ -7,11 +11,21 @@ import daCasa from '../../../assets/da-casa.png'
 import * as S from '../styles'
 
 export default function FillingStep(): JSX.Element {
+  const [selectedButton, setSelectedButton] = React.useState(1)
+  const pizzas = [calabresa, margherita, daCasa]
+  const { removeLast, instantiate } = useStackFluxContext()
+
   return (
     <S.Wrapper>
       <aside>
         <h1>O recheio</h1>
-        <img src={calabresa} alt="recheio" width={450} height={450} />
+        <S.AnimatedImage
+          src={pizzas[selectedButton - 1]}
+          alt="recheio"
+          width={450}
+          height={450}
+          key={selectedButton}
+        />
       </aside>
 
       <div>
@@ -19,38 +33,38 @@ export default function FillingStep(): JSX.Element {
           <h1>Escolha um tipo de recheio</h1>
 
           <div>
-            <S.Option onClick={() => 1} isSelected>
+            <S.Option
+              onClick={() => setSelectedButton(1)}
+              isSelected={selectedButton === 1}
+            >
               Calabresa
             </S.Option>
-            <S.Option onClick={() => 1}>Margherita</S.Option>
-            <S.Option onClick={() => 1}>Da casa</S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(2)}
+              isSelected={selectedButton === 2}
+            >
+              Margherita
+            </S.Option>
+            <S.Option
+              onClick={() => setSelectedButton(3)}
+              isSelected={selectedButton === 3}
+            >
+              Da casa
+            </S.Option>
           </div>
         </main>
 
         <article>
-          <h2>
-            &quot;A tradicional pizza de calabresa, com um toque de pimenta do
-            chef. Peça essa recheio de você ama sabores fortes e experiências
-            intensas&quot; Chef Piola
+          <h2 key={selectedButton}>
+            &quot;
+            {FILLING_COMENTS[selectedButton - 1]}
+            &quot; Chef Piola
           </h2>
-          {/*
-          <h2>
-            &quot;A tão amada pizza de Margherita são para os tradicionais
-            amantes da massa italiana. Simplesmente impossível não gostar da
-            nossa queridinha&quot; Chef Piola
-          </h2>
-
-          <h2>
-            &quot;A pizza da casa é a melhor pizza que temos. Recheada com
-            frango desfiado, cebolas roxas, azeitonas pretas e um molho de
-            tomate especial, você não vai querer pedir outra nunca mais!&quot;
-            Chef Piola
-          </h2> */}
         </article>
 
         <footer>
-          <S.Back onClick={() => 1}>Voltar</S.Back>
-          <S.Next onClick={() => 1}>Próximo</S.Next>
+          <S.Back onClick={() => removeLast()}>Voltar</S.Back>
+          <S.Next onClick={() => instantiate(Steps.border)}>Próximo</S.Next>
         </footer>
       </div>
     </S.Wrapper>
