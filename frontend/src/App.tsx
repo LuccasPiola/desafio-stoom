@@ -6,6 +6,7 @@ import Conclusion from './pages/Steps/Conclusion'
 import DoughStep from './pages/Steps/Dough'
 import FillingStep from './pages/Steps/Filling'
 import SizeStep from './pages/Steps/Size'
+import Suggestion from './pages/Suggestion'
 import GlobalStyle from './styles/global'
 
 export default function App(): JSX.Element {
@@ -13,7 +14,7 @@ export default function App(): JSX.Element {
     <>
       <GlobalStyle />
       <Navbar />
-      <Conclusion />
+      <Suggestion />
     </>
   )
 }

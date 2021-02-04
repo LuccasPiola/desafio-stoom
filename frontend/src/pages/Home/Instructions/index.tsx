@@ -3,7 +3,6 @@ import React from 'react'
 import { GiDoughRoller, GiCheeseWedge, GiFullPizza } from 'react-icons/gi'
 import { GoDashboard } from 'react-icons/go'
 import { BsArrowRight } from 'react-icons/bs'
-import { IoFastFood } from 'react-icons/io5'
 
 import RoundIcon from '../../../components/RoundIcon'
 
@@ -37,14 +36,7 @@ export default function Instructions(): JSX.Element {
 
         <div>
           <RoundIcon icon={GiFullPizza} size={50} color="#2e2e2e" />
-          <p>O tamanho também</p>
-        </div>
-
-        <BsArrowRight size={60} color="#2e2e2e" />
-
-        <div>
-          <RoundIcon icon={IoFastFood} size={50} color="#2e2e2e" />
-          <p>Aquela bebidinha</p>
+          <p>O tamanho por último</p>
         </div>
       </S.IconArea>
     </S.Wrapper>
