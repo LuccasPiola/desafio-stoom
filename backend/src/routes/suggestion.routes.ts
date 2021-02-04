@@ -9,7 +9,7 @@ suggestionRouter.get('/', async (request, response) => {
 		dayOfTheWeek: today
 	}
 
-	setTimeout(() => response.json(suggestion), 1000)
+	return response.json(suggestion)
 
 })
 
@@ -18,7 +18,7 @@ suggestionRouter.post('/aceitar', async (request, response) => {
 		chefMessage: 'Obrigado por aceitar a nossa sugestão! Você recebeu 10 pontos de benefício na nossa pizzaria!'
 	}
 
-  setTimeout(() => response.json(acceptedSuggestion), 1000)
+	return response.json(acceptedSuggestion)
 })
 
 export default suggestionRouter

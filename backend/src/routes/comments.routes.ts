@@ -11,7 +11,7 @@ commentsRouter.get('/', async (request, response) => {
 		size: C.SIZE_COMMENTS
 	}
 
-  setTimeout(() => response.json(comments), 1000)
+  return response.json(comments)
 })
 
 export default commentsRouter
