@@ -11,7 +11,7 @@ export default function BorderStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>A borda</h1>
-        <img src={vulcan} alt="recheio" width={450} height={450} />
+        <img src={vulcan} alt="borda" width={450} height={450} />
       </aside>
 
       <div>
