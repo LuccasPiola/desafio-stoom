@@ -19,7 +19,6 @@ export default function Navbar(): JSX.Element {
         <S.NavbarItem isVisible>O recheio</S.NavbarItem>
         <S.NavbarItem isVisible>A borda</S.NavbarItem>
         <S.NavbarItem isVisible>O tamanho</S.NavbarItem>
-        <S.NavbarItem isVisible>Os acompanhamentos</S.NavbarItem>
       </ul>
     </S.Wrapper>
   )
