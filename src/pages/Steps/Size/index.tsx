@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
 import { useCommentContext } from '../../../context/comments.context'
@@ -21,7 +22,7 @@ export default function SizeStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>O tamanho</h1>
-        <img src={bigPizza} alt="tamanho" width={450} height={450} />
+        <LazyLoadImage src={bigPizza} alt="tamanho" width={450} height={450} />
       </aside>
 
       <div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import pizza from '../../../assets/pizza-2.png'
 
@@ -9,7 +10,7 @@ export default function Banner(): JSX.Element {
   const history = useHistory()
   return (
     <S.Wrapper>
-      <img src={pizza} alt="pizza" width={440} />
+      <LazyLoadImage src={pizza} alt="pizza" width={440} />
 
       <aside>
         <h1>Chegou a hora da pizza!</h1>

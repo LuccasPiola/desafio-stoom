@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import logo from '../../assets/logo.png'
 
@@ -18,7 +19,7 @@ export default function Navbar(): JSX.Element {
   return (
     <S.Wrapper>
       <div>
-        <img src={logo} alt="logo" />
+        <LazyLoadImage src={logo} alt="logo" />
         <h1>Pizza Time!</h1>
       </div>
       <ul>

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const rotationAnimation = keyframes`
   0% {
@@ -16,7 +17,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: calc(100% - 237.5px);
 `
-export const AnimatedImage = styled.img`
+export const AnimatedImage = styled(LazyLoadImage)`
   width: 100px;
   animation: ${rotationAnimation} 2.5s infinite linear;
 `

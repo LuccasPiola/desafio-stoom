@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { useHistory } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
 import monday from '../../assets/calabresa.png'
 import tuesday from '../../assets/da-casa.png'
 import wednesday from '../../assets/borda-recheada.png'
@@ -57,7 +59,7 @@ export default function Suggestion(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>Sugestão do dia</h1>
-        <img
+        <LazyLoadImage
           src={suggestionsByDay[dayOfWeek]}
           alt="tamanho"
           width={450}

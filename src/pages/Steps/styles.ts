@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { fadeInLeft, fadeInRight, slideInDown, fadeIn } from 'react-animations'
 import { shade } from 'polished'
 
@@ -143,7 +144,7 @@ export const Back = styled(Button)`
   }
 `
 
-export const AnimatedImage = styled.img`
+export const AnimatedImage = styled(LazyLoadImage)`
   opacity: 0;
   animation: 1s ${fadeInAnimation};
   animation-fill-mode: forwards;

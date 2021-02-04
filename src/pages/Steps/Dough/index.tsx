@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import dough from '../../../assets/dough.png'
 
 import Loading from '../../../components/Loading'
@@ -21,7 +22,7 @@ export default function DoughStep(): JSX.Element {
     <S.Wrapper>
       <aside>
         <h1>A massa</h1>
-        <img src={dough} alt="massa" width={450} height={450} />
+        <LazyLoadImage src={dough} alt="massa" width={450} height={450} />
       </aside>
 
       <div>
