@@ -15,10 +15,13 @@ import { Steps } from '../Steps/types'
 import { useStackFluxContext } from '../../context/flux.context'
 
 import * as S from './styles'
+import api from '../../services/api'
+import Loading from '../../components/Loading'
 
 export default function Suggestion(): JSX.Element {
-  const todayAsDayOfWeek = new Date().getDay()
-  const pizzas = [
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [dayOfWeek, setDayOfWeek] = React.useState(0)
+  const suggestionsByDay = [
     sunday,
     monday,
     tuesday,
@@ -28,16 +31,28 @@ export default function Suggestion(): JSX.Element {
     saturday,
   ]
 
+  const handleAPI = React.useCallback(async () => {
+    const response = await api.get('/suggestion')
+    setDayOfWeek(response.data.dayOfTheWeek)
+    setIsLoading(false)
+  }, [])
+
+  React.useEffect(() => {
+    handleAPI()
+  })
+
   const [selectedButton, setSelectedButton] = React.useState(1)
   const history = useHistory()
   const { instantiate } = useStackFluxContext()
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <S.Wrapper>
       <aside>
         <h1>Sugestão do dia</h1>
         <img
-          src={pizzas[todayAsDayOfWeek]}
+          src={suggestionsByDay[dayOfWeek]}
           alt="tamanho"
           width={450}
           height={450}

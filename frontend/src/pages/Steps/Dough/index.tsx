@@ -2,16 +2,22 @@ import React from 'react'
 
 import dough from '../../../assets/dough.png'
 
-import { DOUGH_COMENTS } from '../../../constants'
+import Loading from '../../../components/Loading'
+
 import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
+import { useCommentContext } from '../../../context/comments.context'
 
 import * as S from '../styles'
 
 export default function DoughStep(): JSX.Element {
   const [selectedButton, setSelectedButton] = React.useState(1)
   const { instantiate } = useStackFluxContext()
-  return (
+  const { comments, isLoading } = useCommentContext()
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <S.Wrapper>
       <aside>
         <h1>A massa</h1>
@@ -47,7 +53,7 @@ export default function DoughStep(): JSX.Element {
         <article>
           <h2 key={selectedButton}>
             &quot;
-            {DOUGH_COMENTS[selectedButton - 1]}
+            {comments.dough[selectedButton - 1]}
             &quot; Chef Piola
           </h2>
         </article>

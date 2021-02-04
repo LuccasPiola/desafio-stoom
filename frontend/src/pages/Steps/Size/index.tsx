@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { SIZE_COMMENTS } from '../../../constants'
 import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
+import { useCommentContext } from '../../../context/comments.context'
+
+import Loading from '../../../components/Loading'
 
 import bigPizza from '../../../assets/pizza-grande.png'
 
@@ -11,8 +13,11 @@ import * as S from '../styles'
 export default function SizeStep(): JSX.Element {
   const [selectedButton, setSelectedButton] = React.useState(1)
   const { removeLast, instantiate } = useStackFluxContext()
+  const { comments, isLoading } = useCommentContext()
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <S.Wrapper>
       <aside>
         <h1>O tamanho</h1>
@@ -48,7 +53,7 @@ export default function SizeStep(): JSX.Element {
         <article>
           <h2 key={selectedButton}>
             &quot;
-            {SIZE_COMMENTS[selectedButton - 1]}
+            {comments.size[selectedButton - 1]}
             &quot; Chef Piola
           </h2>
         </article>

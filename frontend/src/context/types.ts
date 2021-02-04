@@ -10,3 +10,15 @@ export interface FormState {
   updateForm: (updatedKeys: Record<string, unknown>) => void
   form: Record<string, unknown>
 }
+
+export interface CommentsState {
+  comments: Comments
+  isLoading: boolean
+}
+
+export interface Comments {
+  dough: Array<string> | []
+  filling: Array<string> | []
+  border: Array<string> | []
+  size: Array<string> | []
+}

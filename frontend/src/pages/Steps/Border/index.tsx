@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { BORDER_COMENTS } from '../../../constants'
+import Loading from '../../../components/Loading'
+
 import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
+import { useCommentContext } from '../../../context/comments.context'
 
 import margherita from '../../../assets/margherita.png'
 import vulcan from '../../../assets/borda-vulcao.png'
@@ -14,8 +16,11 @@ export default function BorderStep(): JSX.Element {
   const borders = [margherita, filled, vulcan]
   const { instantiate, removeLast } = useStackFluxContext()
   const [selectedButton, setSelectedButton] = React.useState(1)
+  const { comments, isLoading } = useCommentContext()
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <S.Wrapper>
       <aside>
         <h1>A borda</h1>
@@ -57,7 +62,7 @@ export default function BorderStep(): JSX.Element {
         <article>
           <h2 key={selectedButton}>
             &quot;
-            {BORDER_COMENTS[selectedButton - 1]}
+            {comments.border[selectedButton - 1]}
             &quot; Chef Piola
           </h2>
         </article>

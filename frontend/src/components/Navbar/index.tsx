@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
 
@@ -9,7 +9,8 @@ import * as S from './styles'
 
 export default function Navbar(): JSX.Element {
   const location = useLocation()
-  const { getLength } = useStackFluxContext()
+  const history = useHistory()
+  const { getLength, reset } = useStackFluxContext()
   const length = getLength()
   const inStep = location.pathname === '/pizza'
   const inSuggestion = location.pathname === '/sugestao'
@@ -21,7 +22,14 @@ export default function Navbar(): JSX.Element {
         <h1>Pizza Time!</h1>
       </div>
       <ul>
-        <S.NavbarItem isActive={!inStep && !inSuggestion} isVisible>
+        <S.NavbarItem
+          isActive={!inStep && !inSuggestion}
+          isVisible
+          onClick={() => {
+            reset()
+            history.push('/')
+          }}
+        >
           Início
         </S.NavbarItem>
         <S.NavbarItem isVisible={inStep} isActive={length === 1}>

@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { FILLING_COMENTS } from '../../../constants'
 import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
+import { useCommentContext } from '../../../context/comments.context'
+
+import Loading from '../../../components/Loading'
 
 import calabresa from '../../../assets/calabresa.png'
 import margherita from '../../../assets/margherita.png'
@@ -14,8 +16,11 @@ export default function FillingStep(): JSX.Element {
   const [selectedButton, setSelectedButton] = React.useState(1)
   const pizzas = [calabresa, margherita, daCasa]
   const { removeLast, instantiate } = useStackFluxContext()
+  const { comments, isLoading } = useCommentContext()
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <S.Wrapper>
       <aside>
         <h1>O recheio</h1>
@@ -57,7 +62,7 @@ export default function FillingStep(): JSX.Element {
         <article>
           <h2 key={selectedButton}>
             &quot;
-            {FILLING_COMENTS[selectedButton - 1]}
+            {comments.filling[selectedButton - 1]}
             &quot; Chef Piola
           </h2>
         </article>
