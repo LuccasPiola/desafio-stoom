@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { Steps } from '../types'
+import { FILLING_TYPES } from '../../../constants'
+
 import { useStackFluxContext } from '../../../context/flux.context'
 import { useCommentContext } from '../../../context/comments.context'
+import { useFormContext } from '../../../context/form.context'
 
 import Loading from '../../../components/Loading'
 
@@ -10,13 +12,15 @@ import calabresa from '../../../assets/calabresa.png'
 import margherita from '../../../assets/margherita.png'
 import daCasa from '../../../assets/da-casa.png'
 
+import { Steps } from '../types'
 import * as S from '../styles'
 
 export default function FillingStep(): JSX.Element {
-  const [selectedButton, setSelectedButton] = React.useState(1)
   const pizzas = [calabresa, margherita, daCasa]
+  const [selectedButton, setSelectedButton] = React.useState(1)
   const { removeLast, instantiate } = useStackFluxContext()
   const { comments, isLoading } = useCommentContext()
+  const { updateForm } = useFormContext()
 
   return isLoading ? (
     <Loading />
@@ -70,7 +74,14 @@ export default function FillingStep(): JSX.Element {
 
         <footer>
           <S.Back onClick={() => removeLast()}>Voltar</S.Back>
-          <S.Next onClick={() => instantiate(Steps.border)}>Próximo</S.Next>
+          <S.Next
+            onClick={() => {
+              updateForm({ filling: FILLING_TYPES[selectedButton - 1] })
+              instantiate(Steps.border)
+            }}
+          >
+            Próximo
+          </S.Next>
         </footer>
       </div>
     </S.Wrapper>

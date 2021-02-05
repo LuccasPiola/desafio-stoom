@@ -1,16 +1,21 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+
 import Loading from '../../../components/Loading'
+
 import { useStackFluxContext } from '../../../context/flux.context'
+import { useFormContext } from '../../../context/form.context'
+
 import api from '../../../services/api'
 
 import * as S from './styles'
 
 export default function Conclusion(): JSX.Element {
-  const { reset, getLength } = useStackFluxContext()
-  const length = getLength()
   const [chefMessage, setChefMessage] = React.useState('')
   const history = useHistory()
+  const { reset, getLength } = useStackFluxContext()
+  const { resetForm, form } = useFormContext()
+  const length = getLength()
 
   const handleAPI = React.useCallback(async () => {
     try {
@@ -26,6 +31,7 @@ export default function Conclusion(): JSX.Element {
     if (length === 3) handleAPI()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   return length === 3 && !chefMessage ? (
     <Loading />
   ) : (
@@ -36,7 +42,10 @@ export default function Conclusion(): JSX.Element {
 
       <S.Next
         onClick={() => {
+          // eslint-disable-next-line no-console
+          console.log('Formulário preenchido', form)
           reset()
+          resetForm()
           history.push('/')
         }}
       >

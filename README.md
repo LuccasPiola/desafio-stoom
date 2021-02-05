@@ -90,6 +90,9 @@ de código, este repositório foi criado utilizando a arquitetura de componentiz
  Já o FormProvider é justamente para manter uma consistência no formulário da aplicação, para que todos os componentes tenham acesso a ele e também
  a função que o modifica.
 
+ Para ver o formulário preechido, é só montar uma pizza até o final, clicar no botão de finalizar e abrir o console do navegador. Para utilizadores
+ de windows e linux, é só apertar F12 e clicar na aba console. Para mac, é só apertar command + shift + i.
+
  Para análise e ver funcionando diretamente na máquina local:
 
  1. Clone este repositório utilizando o comando <code>git clone https://github.com/LuccasPiola/desafio-stoom.git</code>

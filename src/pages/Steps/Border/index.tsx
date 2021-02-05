@@ -2,21 +2,25 @@ import React from 'react'
 
 import Loading from '../../../components/Loading'
 
-import { Steps } from '../types'
+import { BORDER_TYPES } from '../../../constants'
+
 import { useStackFluxContext } from '../../../context/flux.context'
 import { useCommentContext } from '../../../context/comments.context'
+import { useFormContext } from '../../../context/form.context'
 
 import margherita from '../../../assets/margherita.png'
 import vulcan from '../../../assets/borda-vulcao.png'
 import filled from '../../../assets/borda-recheada.png'
 
+import { Steps } from '../types'
 import * as S from '../styles'
 
 export default function BorderStep(): JSX.Element {
   const borders = [margherita, filled, vulcan]
-  const { instantiate, removeLast } = useStackFluxContext()
   const [selectedButton, setSelectedButton] = React.useState(1)
+  const { instantiate, removeLast } = useStackFluxContext()
   const { comments, isLoading } = useCommentContext()
+  const { updateForm } = useFormContext()
 
   return isLoading ? (
     <Loading />
@@ -70,7 +74,14 @@ export default function BorderStep(): JSX.Element {
 
         <footer>
           <S.Back onClick={() => removeLast()}>Voltar</S.Back>
-          <S.Next onClick={() => instantiate(Steps.size)}>Próximo</S.Next>
+          <S.Next
+            onClick={() => {
+              updateForm({ border: BORDER_TYPES[selectedButton - 1] })
+              instantiate(Steps.size)
+            }}
+          >
+            Próximo
+          </S.Next>
         </footer>
       </div>
     </S.Wrapper>

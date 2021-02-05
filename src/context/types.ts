@@ -9,6 +9,7 @@ export interface StackFluxState {
 export interface FormState {
   updateForm: (updatedKeys: Record<string, unknown>) => void
   form: Record<string, unknown>
+  resetForm: () => void
 }
 
 export interface CommentsState {

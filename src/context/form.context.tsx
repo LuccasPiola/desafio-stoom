@@ -12,13 +12,17 @@ export default function FormFluxProvider({
 
   const updateForm = React.useCallback(
     (updatedKeys: Record<string, unknown>) => {
-      setForm({ ...form, updatedKeys })
+      setForm({ ...form, ...updatedKeys })
     },
     [form],
   )
 
+  const resetForm = React.useCallback(() => {
+    setForm({})
+  }, [])
+
   return (
-    <FormContext.Provider value={{ updateForm, form }}>
+    <FormContext.Provider value={{ updateForm, form, resetForm }}>
       {children}
     </FormContext.Provider>
   )

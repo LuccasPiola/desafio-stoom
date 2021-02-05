@@ -1,19 +1,23 @@
 import React from 'react'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+
 import dough from '../../../assets/dough.png'
+import { DOUGH_TYPES } from '../../../constants'
 
 import Loading from '../../../components/Loading'
 
-import { Steps } from '../types'
 import { useStackFluxContext } from '../../../context/flux.context'
 import { useCommentContext } from '../../../context/comments.context'
+import { useFormContext } from '../../../context/form.context'
 
+import { Steps } from '../types'
 import * as S from '../styles'
 
 export default function DoughStep(): JSX.Element {
   const [selectedButton, setSelectedButton] = React.useState(1)
   const { instantiate } = useStackFluxContext()
+  const { updateForm } = useFormContext()
   const { comments, isLoading } = useCommentContext()
 
   return isLoading ? (
@@ -66,7 +70,14 @@ export default function DoughStep(): JSX.Element {
         </article>
 
         <footer>
-          <S.Next onClick={() => instantiate(Steps.filling)}>Próximo</S.Next>
+          <S.Next
+            onClick={() => {
+              updateForm({ dough: DOUGH_TYPES[selectedButton - 1] })
+              instantiate(Steps.filling)
+            }}
+          >
+            Próximo
+          </S.Next>
         </footer>
       </div>
     </S.Wrapper>

@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 35px 0;
 
   aside {
     margin-left: 100px;

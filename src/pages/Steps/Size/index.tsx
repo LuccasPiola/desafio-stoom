@@ -1,7 +1,9 @@
 import React from 'react'
-
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { Steps } from '../types'
+
+import { SIZE_TYPES } from '../../../constants'
+
+import { useFormContext } from '../../../context/form.context'
 import { useStackFluxContext } from '../../../context/flux.context'
 import { useCommentContext } from '../../../context/comments.context'
 
@@ -9,12 +11,14 @@ import Loading from '../../../components/Loading'
 
 import bigPizza from '../../../assets/pizza-grande.png'
 
+import { Steps } from '../types'
 import * as S from '../styles'
 
 export default function SizeStep(): JSX.Element {
   const [selectedButton, setSelectedButton] = React.useState(1)
   const { removeLast, instantiate } = useStackFluxContext()
   const { comments, isLoading } = useCommentContext()
+  const { updateForm } = useFormContext()
 
   return isLoading ? (
     <Loading />
@@ -67,7 +71,14 @@ export default function SizeStep(): JSX.Element {
 
         <footer>
           <S.Back onClick={() => removeLast()}>Voltar</S.Back>
-          <S.Next onClick={() => instantiate(Steps.conclusion)}>Próximo</S.Next>
+          <S.Next
+            onClick={() => {
+              updateForm({ size: SIZE_TYPES[selectedButton - 1] })
+              instantiate(Steps.conclusion)
+            }}
+          >
+            Próximo
+          </S.Next>
         </footer>
       </div>
     </S.Wrapper>

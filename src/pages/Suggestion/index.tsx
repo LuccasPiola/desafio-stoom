@@ -3,6 +3,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
+import Loading from '../../components/Loading'
+
 import monday from '../../assets/calabresa.png'
 import tuesday from '../../assets/da-casa.png'
 import wednesday from '../../assets/borda-recheada.png'
@@ -11,21 +13,15 @@ import friday from '../../assets/pizza-grande.png'
 import saturday from '../../assets/pizza-2.png'
 import sunday from '../../assets/borda-vulcao.png'
 
-import { SIZE_COMMENTS } from '../../constants'
-import { Steps } from '../Steps/types'
-
 import { useStackFluxContext } from '../../context/flux.context'
+import { useCommentContext } from '../../context/comments.context'
 
-import * as S from './styles'
 import api from '../../services/api'
-import Loading from '../../components/Loading'
+
+import { Steps } from '../Steps/types'
+import * as S from './styles'
 
 export default function Suggestion(): JSX.Element {
-  const history = useHistory()
-  const { instantiate, reset } = useStackFluxContext()
-  const [selectedButton, setSelectedButton] = React.useState(1)
-  const [isLoading, setIsLoading] = React.useState(true)
-  const [dayOfWeek, setDayOfWeek] = React.useState(0)
   const suggestionsByDay = [
     sunday,
     monday,
@@ -35,6 +31,12 @@ export default function Suggestion(): JSX.Element {
     friday,
     saturday,
   ]
+  const [selectedButton, setSelectedButton] = React.useState(1)
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [dayOfWeek, setDayOfWeek] = React.useState(0)
+  const history = useHistory()
+  const { instantiate, reset } = useStackFluxContext()
+  const { comments } = useCommentContext()
 
   const handleAPI = React.useCallback(async () => {
     try {
@@ -97,7 +99,7 @@ export default function Suggestion(): JSX.Element {
         <article>
           <h2 key={selectedButton}>
             &quot;
-            {SIZE_COMMENTS[selectedButton - 1]}
+            {comments.size[selectedButton - 1]}
             &quot; Chef Piola
           </h2>
         </article>
