@@ -102,4 +102,4 @@ de código, este repositório foi criado utilizando a arquitetura de componentiz
 
 ---
 
-This test was made by Stoom Repository by Luccas Piola. ♥ &nbsp; for JavaScript.
+This test was made by Stoom. Repository by Luccas Piola. ♥ &nbsp; for JavaScript.
