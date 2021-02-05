@@ -36,7 +36,7 @@ O teste consistia no desenvolvimento de um formulário, onde fosse possível mon
 - :blue_heart: &nbsp; TypeScript - Tecnologia para tipagem e melhoria de arquitetura JavaScript.
 
 ### **Tecnologia utilizada para o deploy**
-- :heart: **[Firebase](https://firebase.google.com/?hl=pt)** — Tecnologia de deploy utilizando devOps.
+- :heart: &nbsp; **[Firebase](https://firebase.google.com/?hl=pt)** — Tecnologia de deploy utilizando devOps.
 
 ## Funcionamento
 
@@ -99,4 +99,4 @@ de código, este repositório foi criado utilizando a arquitetura de componentiz
 
 ---
 
-This test was made by Genial and Sciensa. Repository by Luccas Piola. ♥ for JavaScript.
+This test was made by Genial and Sciensa. Repository by Luccas Piola. ♥ &nbsp; for JavaScript.
