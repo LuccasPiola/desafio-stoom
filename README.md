@@ -41,7 +41,7 @@ O teste consistia no desenvolvimento de um formulário, onde fosse possível mon
 ## Funcionamento
 
 <h1 align="center">
-  <img alt="funcionamento" title="funcionamento" src="assets/pizza.mp4" width="1000px" />
+  <img alt="funcionamento" title="funcionamento" src="assets/suggestion.gif" width="1000px" />
 </h1>
 
 Como se pode perceber no gif acima, a aplicação consiste em um formulário para a montagem de uma pizza, passando pelas etapas da massa,
@@ -58,7 +58,7 @@ Outro ponto importante para se tocar é a utilização de padronização de cód
 ESlint para padronização geral, Prettier para padronização estilística e EditorConfig para padronização entre sistemas operacionais.
 
 <h1 align="center">
-  <img alt="funcionamento" title="funcionamento" src="assets/suggestion.mp4" width="1000px" />
+  <img alt="funcionamento" title="funcionamento" src="assets/pizza.gif" width="1000px" />
 </h1>
 
 No gif acima, pode-se perceber também que é possível pedir a sugestão do dia. Essa sugestão vem do back-end também, de acordo com
